@@ -12,7 +12,7 @@
 
 ## 项目创建
 1. dotnet new list: 查看所有可用模版
-![[Pasted image 20260118201609.png]]
+![dotnet new list 模板列表](../../Image/dotnet_template_list.png)
 
 ### 创建流程实例  ***个人财务管理应用 "FinanceTracker"***
 **首先创建项目框架**
@@ -24,7 +24,7 @@
 	将指定的项目文件（.csproj）添加到解决方案文件（.sln）中，建立项目与解决方案的关联关系
 **重复以上步骤，直至创建完Core, Data, Api, Cli, Tests这五个类**
 **然后添加项目引用:**
-![[Pasted image 20260118211533.png]]
+![项目引用示意图](../../Image/dotnet_project_referencing.png)
 项目引用(Project Reference)的作用是：在项目之间建立依赖关系，使一个项目能够使用另一个项目的代码和功能
 **构建与编译**
 - dotnet build: 在解决方案根目录执行
@@ -34,4 +34,4 @@
 - dotnet build FinanceTracker.Core.csproj
 	编译类库项目，生成.dll文件（动态链接库），而不是.exe（可执行文件）
 **以下是其他编译命令:**
-![[Pasted image 20260118212617.png]]
+![其他编译命令](../../Image/dotnet_compilation_options.png)
