@@ -37,7 +37,7 @@
 - `cicd-pipeline/` - CI/CD 自动化构建
 
 ### [07_Practical_WpfApp](./07_Practical_WpfApp) - 实战案例
-- 记录 `Blade Inspector` 项目中的具体技术实现与避坑指南。
+- 记录 **工业级WPF软件** 项目中的具体技术实现与避坑指南。
 
 ---
 *持续补充中...*
