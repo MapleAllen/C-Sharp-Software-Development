@@ -1,37 +1,60 @@
-即.NET SDK (dotnet CLI), 全称 Software Development Kit，以下是常用指令及示例:
+.NET CLI (Command Line Interface) 是现代 .NET 开发的核心工具。它跨平台且功能强大，是 CI/CD 流水线的基础。
 
-## 安装与验证
-1. dotnet --info: 检查已安装的.NET版本
-	一般来说.NET版本影响的是兼容性，构建速度以及版本特性
+## 环境验证 (Diagnostics)
 
-2. dotnet --list-sdks: 列出所有已安装的SDK
-	SDK是开发工具包，在安装多个SDK时，默认使用最新版本
+在开始开发前，确保环境配置正确：
+-   `dotnet --info`：显示当前 .NET 环境的详细信息（版本、OS、SDK 路径）。
+-   `dotnet --list-sdks`：查看已安装的 SDK 列表。
+-   `dotnet --list-runtimes`：查看已安装的运行时列表。
 
-3. dotnet --list-runtimes: 检查运行时
-	运行时(Runtime)是.NET应用程序运行所需的**执行环境**，如：Microsoft.AspNetCore.App 8.0.0，Microsoft.NETCore.App 8.0.0，Microsoft.WindowsDesktop.App 6.0.20
+---
 
-## 项目创建
-1. dotnet new list: 查看所有可用模版
-![dotnet new list 模板列表](../../Image/dotnet_template_list.png)
+## 项目创建与管理 (Project Management)
 
-### 创建流程实例  ***个人财务管理应用 "FinanceTracker"***
-**首先创建项目框架**
-- dotnet new sln -n FinanceTracker
-	创建解决方案，-n(-name)是用来指定名称的，如果不使用此参数，dotnet new sln将创建名为"Solution1.sln"的解决方案文件（每次名称递增）
-- dotnet new classlib -n FinanceTracker.Core
-- dotnet sln add  FinanceTracker.Core/FinanceTracker.Core.csproj
-	创建核心领域项目，classlib是 class library的缩写，用于创建**类库项目**；
-	将指定的项目文件（.csproj）添加到解决方案文件（.sln）中，建立项目与解决方案的关联关系
-**重复以上步骤，直至创建完Core, Data, Api, Cli, Tests这五个类**
-**然后添加项目引用:**
-![项目引用示意图](../../Image/dotnet_project_referencing.png)
-项目引用(Project Reference)的作用是：在项目之间建立依赖关系，使一个项目能够使用另一个项目的代码和功能
-**构建与编译**
-- dotnet build: 在解决方案根目录执行
-- dotnet build FinanceTracker.sln: 明确指定解决方案文件
-**以上指令会找到解决方案中所有项目，分析项目依赖图，按照依赖顺序逐个编译**
-**以下是手动逐个编译的命令示例（不推荐）**
-- dotnet build FinanceTracker.Core.csproj
-	编译类库项目，生成.dll文件（动态链接库），而不是.exe（可执行文件）
-**以下是其他编译命令:**
-![其他编译命令](../../Image/dotnet_compilation_options.png)
+### 常用模板命令
+-   `dotnet new list`：列出所有可用的项目模板。
+-   `dotnet new console -n MyApp`：创建新的控制台应用。
+-   `dotnet new wpf -n MyWpfApp`：创建新的 WPF 应用 (仅限 Windows)。
+
+### 解决方案操作
+-   `dotnet new sln -n MySolution`：创建解决方案文件。
+-   `dotnet sln MySolution.sln add MyApp/MyApp.csproj`：将项目添加到解决方案。
+
+---
+
+## 核心开发工作流 (Development Workflow)
+
+### 1. 构建与编译
+-   `dotnet build`：编译项目或解决方案。
+-   `dotnet clean`：清理上一次构建生成的中间文件 (`obj/`, `bin/`)。
+
+### 2. 运行与测试
+-   `dotnet run`：构建并直接运行项目。
+-   `dotnet watch run`：**热重载 (Hot Reload)** 模式，代码修改后自动重新构建并运行。
+-   `dotnet test`：运行所有单元测试项目。
+
+### 3. 发布与分发
+-   `dotnet publish -c Release`：发布项目以供部署。生产环境必须使用 `-c Release`。
+-   `dotnet publish -r win-x64 --self-contained`：发布单文件、自包含的可执行程序（无需目标机器安装 .NET 运行时）。
+
+---
+
+## SDK vs Runtime (核心区别)
+
+| 组件 | 用途 | 包含内容 |
+| :--- | :--- | :--- |
+| **SDK** (Software Development Kit) | **开发人员使用** | 包含编译器、CLI 工具、运行时集。 |
+| **Runtime** | **生产环境部署使用** | 仅包含运行程序所需的执行环境。 |
+
+---
+
+## 知识提取：WpfApp 中的命令行应用
+
+虽然 `WpfApp` 主要是通过 Visual Studio 开发的，但在某些场景下依然可以使用 CLI：
+-   **脚本调用**：项目中的 Python 脚本是通过 `Process.Start` 启动的。类似地，我们可以编写 C# 脚本或批处理文件，使用 `dotnet publish` 快速打包我们的 WPF 应用程序。
+
+---
+
+## 相关链接
+-   [返回概览](../dotnet-framework-overview.md)
+-   [NuGet 包管理](../nuget-package-management.md)
