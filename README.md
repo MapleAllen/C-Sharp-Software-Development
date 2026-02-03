@@ -11,6 +11,9 @@
 
 ### [02_Environment](./02_Environment) - 开发环境
 - [.NET Framework 概览](./02_Environment/dotnet-framework-overview.md)
+- [运行时与类库详解](./02_Environment/runtime-and-libraries.md)
+- [项目结构基础](./02_Environment/project-structure-fundamentals.md)
+- [NuGet 包管理](./02_Environment/nuget-package-management.md)
 - [.NET CLI 基础](./02_Environment/cli-tools/dotnet-cli-basics.md)
 
 ### [03_Desktop_UI](./03_Desktop_UI) - 桌面开发 (WPF)
@@ -37,6 +40,7 @@
 - `cicd-pipeline/` - CI/CD 自动化构建
 
 ### [07_Practical_WpfApp](./07_Practical_WpfApp) - 实战案例
+- [环境搭建案例分析](./07_Practical_WpfApp/environment-setup-case-study.md)
 - 记录 **工业级WPF软件** 项目中的具体技术实现与避坑指南。
 
 ---
