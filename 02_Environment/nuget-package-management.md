@@ -45,7 +45,7 @@ NuGet 允许开发者共享和使用第三方类库（DLLs）。
 
 ## 知识提取：WpfApp 中的依赖
 
-在 `Blade Inspector` (WpfApp) 中，关键依赖包括：
+在 `基于C#的工业软件` 中，关键依赖包括：
 -   **Newtonsoft.Json**：用于解析项目配置文件（`.json`）。
 -   **PDFsharp**：用于生成检测报告 PDF。
 -   **Npgsql**：如果启用了数据库入库功能，用于连接 PostgreSQL。
