@@ -12,9 +12,9 @@
 - [异常处理](./01_Basics/exception-handling.md)
 - [文件 I/O 与序列化](./01_Basics/file-io-and-serialization.md)
 - [日志流程](./01_Basics/log-flow.md)
-- [委托与事件](./01_Basics/delegates-and-events.md) ⭐
-- [异步编程基础 (Async/Await)](./01_Basics/async-await-basics.md) ⭐
-- [LINQ 基础](./01_Basics/linq-basics.md) ⭐
+- [委托与事件](./01_Basics/delegates-and-events.md) 
+- [异步编程基础 (Async/Await)](./01_Basics/async-await-basics.md) 
+- [LINQ 基础](./01_Basics/linq-basics.md) 
 - [字符串操作](./01_Basics/string-manipulation.md)
 - [空值处理](./01_Basics/null-handling.md)
 - [值类型 vs 引用类型](./01_Basics/value-vs-reference-types.md)
